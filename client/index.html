@@ -9,18 +9,9 @@
 
     <!-- dependencies -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script>
-      // YOU DO NOT NEED TO EDIT THIS CODE
-      if (!/(&|\?)username=/.test(window.location.search)) {
-        var newSearch = window.location.search;
-        if (newSearch !== '' & newSearch !== '?') {
-          newSearch += '&';
-        }
-        newSearch += 'username=' + (prompt('What is your name?') || 'anonymous');
-        window.location.search = newSearch;
-      }
-    </script>
-    <!-- your scripts -->
+    <script src="bower_components/underscore/underscore-min.js"></script>
+    <script src="bower_components/backbone/backbone.js"></script>
+    <script src="../node_modules/xss-filters/dist/xss-filters.min.js"></script>
     <script src="env/config.js"></script>
     <script src="scripts/app.js"></script>
   </head>
@@ -28,7 +19,11 @@
     <div id="main">
       <h1>chatterbox</h1>
       <!-- Your HTML goes here! -->
-      Room: <select id="roomSelect"></select>
+      Room: <select id="roomSelect">
+        <option class="all-messages">All Messages</option>
+      </select>
+      Username: <input id="input-username" value="anonymous aardvark"/>
+      <button type="submit" class="create-user-btn">Log In</button>
       <form id="send">
         <input type="text" class="input-field" />
         <input type="submit" class="submit" />
