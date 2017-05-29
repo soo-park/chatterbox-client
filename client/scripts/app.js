@@ -39,7 +39,8 @@ app.send = function(message) {
   $.ajax({
     url: app.server,
     type: 'POST',
-    data: message,
+    data: JSON.stringify(message),
+    contentType: 'application/json',
     success: function (data) {
       console.log('chatterbox: Message sent');
     },
@@ -94,7 +95,7 @@ app.renderRoom = function(roomName) {
   if (roomName in app.roomnames) { return; }
   app.roomnames[roomName] = 1;
   
-  $('#roomSelect').append(`<option class="${roomName}">${xssFilters.inHTMLData(roomName)}</option>`);
+  $('#roomSelect').append(`<option class="${roomName}">${roomName}</option>`);
 };
 
 app.handleUsernameClick = function() {
