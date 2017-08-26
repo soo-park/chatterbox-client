@@ -1,2 +1,2 @@
-#chatterbox-client
-This is a project I completed as a student at [hackreactor](http://hackreactor.com). This project was worked on with a pair.
+# chatterbox-client
+#### Chatting client and HTML injection study
